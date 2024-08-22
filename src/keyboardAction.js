@@ -175,7 +175,7 @@ export function dndzone(node, options) {
             case "Enter":
             case " ": {
                 // we don't want to affect nested input elements or clickable elements
-                if ((e.target.disabled !== undefined || e.target.href || e.target.isContentEditable) && !allDragTargets.has(e.target)) {
+                if (e.target.tagName === "INPUT" || (e.target.disabled !== undefined || e.target.href || e.target.isContentEditable) && !allDragTargets.has(e.target)) {
                     return;
                 }
                 e.preventDefault(); // preventing scrolling on spacebar
